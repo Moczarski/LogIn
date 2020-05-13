@@ -1,0 +1,12 @@
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\bin\Release\Delegaty8983.exe.config
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\bin\Release\Delegaty8983.exe
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\bin\Release\Delegaty8983.pdb
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\obj\Release\Delegaty8983.csprojAssemblyReference.cache
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\obj\Release\Delegaty8983.Logowanie.resources
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\obj\Release\Delegaty8983.Komunikat.resources
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\obj\Release\Delegaty8983.New_user.resources
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\obj\Release\Delegaty8983.Properties.Resources.resources
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\obj\Release\Delegaty8983.csproj.GenerateResource.cache
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\obj\Release\Delegaty8983.csproj.CoreCompileInputs.cache
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\obj\Release\Delegaty8983.exe
+C:\Users\MoczuPC\source\repos\Delegaty8983\Delegaty8983\obj\Release\Delegaty8983.pdb

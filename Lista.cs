@@ -14,26 +14,18 @@ namespace Delegaty8983
 
         public List<User> database = new List<User>()
         {
-            new User("ADMIN", "Mateusz", GetPassw(), true)
+            new User("SuperUser", "Mateusz", GetPassw(), true)
         };
 
         private static string GetPassw()
         {
-            byte[] salt = Encoding.ASCII.GetBytes("ADMIN" + "8983Moczarski");
+            byte[] salt = Encoding.ASCII.GetBytes("SuperUser" + "8983Moczarski");
             Rfc2898DeriveBytes encoded_psw = new Rfc2898DeriveBytes("Moczarski", salt);
             string adminPassw = Encoding.ASCII.GetString(encoded_psw.GetBytes(salt.Length));
             return adminPassw;
         }
 
-        private static Lista instance = new Lista();
-
-        public static Lista getInstance
-        {
-            get
-            {
-                return instance;
-            }
-        }
+        public static Lista getInstance { get; } = new Lista();
 
         public void NewUser(string login, string password, bool IsAdmin)
         {

@@ -16,12 +16,14 @@ namespace Delegaty8983
     public partial class New_user : Form
     {
 
-        private List<User> baseToString = new List<User>();
+        private delegate void ModifyUser();
+        ModifyUser MU;
 
         public New_user()
         {
             InitializeComponent();
-            RefreshList();
+            MU = RefreshList;
+            MU.Invoke();
         }
 
         public void RefreshList()
@@ -34,7 +36,8 @@ namespace Delegaty8983
                     var list = (List<User>)database.Deserialize(checking);
                     Lista.getInstance.ListedUsers(list);
                     users_box.Items.Clear();
-                    ListToString();
+                    MU = ListToString;
+                    MU.Invoke();
                 }
             }
         }
@@ -47,7 +50,7 @@ namespace Delegaty8983
             string status;
             string list = "";
             int i = 1;
-            list = "Nr ID Login Hasło Status";
+            list = "Nr___ID___Login___Hasło___Status";
             users_box.Items.Add(list);
             foreach (User user in Lista.getInstance.database)
             {
@@ -61,12 +64,18 @@ namespace Delegaty8983
             }
         }
 
-private void Manager_FormClosing(Object sender, FormClosingEventArgs e)
+        private void Manager_FormClosing(Object sender, FormClosingEventArgs e)
         {
             Environment.Exit(1);
         }
 
         private void Clear_Click(object sender, EventArgs e)
+        {
+            MU = LetsClean;
+            MU.Invoke();
+        }
+
+        private void LetsClean()
         {
             New_login.Text = "";
             New_password.Text = "";
@@ -74,6 +83,12 @@ private void Manager_FormClosing(Object sender, FormClosingEventArgs e)
         }
 
         private void Create_NewUser_Click(object sender, EventArgs e)
+        {
+            MU = NewUser;
+            MU.Invoke();
+        }
+
+        private void NewUser()
         {
             bool status = Lista.getInstance.ChckLogin(New_login.Text);
 
@@ -90,12 +105,19 @@ private void Manager_FormClosing(Object sender, FormClosingEventArgs e)
             {
                 Lista.getInstance.NewUser(New_login.Text, New_password.Text, Create_admin.Checked);
                 Lista.getInstance.CheckDatabase();
-                RefreshList();
+                MU = RefreshList;
+                MU.Invoke();
                 Login_exist.Text = "Utworzono użytkownika " + New_login.Text + "!";
-            }  
+            }
         }
 
         private void Delete_user_Click(object sender, EventArgs e)
+        {
+            MU = DeleteUser;
+            MU.Invoke();
+        }
+
+        private void DeleteUser()
         {
             bool status = Lista.getInstance.ChckLogin(New_login.Text);
 
@@ -103,7 +125,8 @@ private void Manager_FormClosing(Object sender, FormClosingEventArgs e)
             {
                 Lista.getInstance.DelUser(New_login.Text);
                 Lista.getInstance.CheckDatabase();
-                RefreshList();
+                MU = RefreshList;
+                MU.Invoke();
                 Login_exist.Text = "Usunięto użytkownika " + New_login.Text + "!";
             }
             else if (New_login.Text.Equals(""))
@@ -114,7 +137,6 @@ private void Manager_FormClosing(Object sender, FormClosingEventArgs e)
             {
                 Login_exist.Text = "Wpisz istniejący login!";
             }
-            
         }
     }
 }

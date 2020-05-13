@@ -13,10 +13,21 @@ namespace Delegaty8983
     public partial class Komunikat : Form
     {
         private bool statIf;
+        private string login;
+
+        private delegate void Information();
+        Information inf;
 
         public Komunikat(string login)
         {
             InitializeComponent();
+            this.login = login;
+            inf = IsUser;
+            inf.Invoke();
+        }
+
+        private void IsUser()
+        {
             Uzytkownik.Text = login;
             bool status = Lista.getInstance.ChckStatus(login);
             if (status)
@@ -36,6 +47,12 @@ namespace Delegaty8983
         }
 
         private void Creating_Click(object sender, EventArgs e)
+        {
+            inf = AdminPrivilage;
+            inf.Invoke();
+        }
+
+        private void AdminPrivilage()
         {
             if (statIf)
             {

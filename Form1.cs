@@ -18,9 +18,18 @@ namespace Delegaty8983
         public string password;
         public string login;
 
+        private delegate void MainDelegate();
+        MainDelegate MD;
+
         public Logowanie()
         {
             InitializeComponent();
+            MD = InitializeUsers;
+            MD.Invoke();
+        }
+
+        private void InitializeUsers()
+        {
             if (File.Exists("MM8983.bin"))
             {
                 using (Stream checking = File.Open("MM8983.bin", FileMode.Open))
@@ -37,6 +46,12 @@ namespace Delegaty8983
         }
 
         private void Zaloguj_Click(object sender, EventArgs e)
+        {
+            MD = AuthorizeUser;
+            MD.Invoke();
+        }
+
+        private void AuthorizeUser()
         {
             password = Haslo_box.Text;
             login = Login_box.Text;
